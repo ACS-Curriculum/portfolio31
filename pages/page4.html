@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Games</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+  <!-- code highlighting -->
+  <script type="text/javascript" src="../js/srcFiles/prism.js"></script>
+  <link rel="stylesheet" href="../css/prism.css" type="text/css" />
+  <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="../img/struggle.jpg" class="bannerimg" alt="This is the banner">
+
+      <nav id="main-nav">
+        <ul>
+          <li>
+            <a href="../index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Projects
+              <span class="arrow">&#x25BC;</span>
+            </a>
+            <ul class="submenu">
+
+              <li>
+                <a href="#">Things
+                  <span class="arrow">&#x25B6;</span>
+                </a>
+                <ul class="submenu-2">
+                  <li>
+                    <a href="page1.html">Circles</a>
+                  </li>
+                  <li>
+                    <a href="circles2.html">Circles-2</a>
+                  </li>
+                  <li>
+                    <a href="page2.html">Games</a>
+                  </li>
+                  <li>
+                    <a href="page3.html">Lines 'n Curves</a>
+                  </li>
+                  <li>
+                    <a href="page4.html">Recur</a>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li>
+                <a href="#">Data Structures
+                  <span class="arrow">&#x25B6;</span>
+                </a>
+                <ul class="submenu-2">
+                  <li>
+                    <a href="#">Sets</a>
+                  </li>
+                  <li>
+                    <a href="#">Maps</a>
+                  </li>
+                  <li>
+                    <a href="stacks.html">Stacks</a>
+                  </li>
+                  <li>
+                    <a href="#">Queues/PriorityQueues</a>
+                  </li>
+                  <li>
+                    <a href="linkedlists.html">LinkedLists</a>
+                  </li>
+                  <li>
+                    <a href="#">Trees</a>
+                  </li>
+                  <li>
+                    <a href="#">Heaps</a>
+                  </li>
+                  <li>
+                    <a href="#">Graphs</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+
+            <a href="#">Teaching
+              <span class="arrow">&#x1f601;</span>
+            </a>
+
+            <ul class="submenu">
+              <li>
+                <a href="#">CS Classes
+                  <span class="arrow">&#x25B6;</span>
+                </a>
+                <ul class="submenu-2">
+                  <li>
+                    <a href="#">APCSP</a>
+                  </li>
+                  <li>
+                    <a href="#">APCSA</a>
+                  </li>
+                  <li>
+                    <a href="#">ACS</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Resources
+                  <span class="arrow">&#x25B6;</span>
+                </a>
+                <ul class="submenu-2">
+
+                  <li>
+                    <a href="https://p5js.org/reference/">P5 API</a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.youtube.com/watch?v=HerCR8bw_GE&list=PLRqwX-V7Uu6Zy51Q-x9tMWIv9cueOFTFA">P5Videotutorials</a>
+                  </li>
+                  <li>
+                    <a href="https://happycoding.io/">HappyCoding</a>
+                  </li>
+                  <li>
+                    <a href="https://processing.org/">Processing</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">AboutMe
+              <span class="arrow">&#x1f601;</span>
+            </a>
+            <ul class="submenu">
+              <li>
+                <a href="#">CompSci</a>
+              </li>
+              <li>
+                <a href="#">Algorithms</a>
+              </li>
+              <li>
+                <a href="https://observablehq.com/collection/@anjana/functional-javascript-first-steps">Functional</a>
+              </li>
+              <li>
+                <a href="https://computiful.org/foreword/">Math & Code</a>
+              </li>
+
+              <li>
+                <a href="#">DataViz
+                  <span class="arrow">&#x25B6;</span>
+                </a>
+                <ul class="submenu-2">
+                  <li>
+                    <a href="#">DataViz1</a>
+                  </li>
+                  <li>
+                    <a href="https://generativeartistry.com/">CreativeCode</a>
+                  </li>
+                  <li>
+                    <a href="https://geometrydaily.tumblr.com/">GeoDaily</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Syllabus</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <section class="wrapper">
+      <div class="code">
+        <pre>
+    <code class="language-javascript">
+      var level;
+      var len;
+      
+      var buttonStart;
+      function setup() {
+        createCanvas(400, 400);
+      
+        len=width;
+        level=1;
+        buttonStart=createButton("reset");
+        buttonStart.mousePressed(resetGame);
+      }
+      
+      function draw() {
+        background(0);
+        fill(255, 0, 0);
+        stroke(0);
+        strokeWeight(10);
+        drawChair(len, len, level);
+      }
+      function resetGame(){
+        level=floor(random(1, 6));
+        console.log("hello")
+        console.log(level)
+      }
+      function drawChair(x, y, lev) {
+        if (lev==0) {
+          beginShape();
+          vertex(0, 0);
+          vertex(len, 0);
+          vertex(len, len/2);
+          vertex(len/2, len/2);
+          vertex(len/2, len);
+          vertex(0, len);
+          endShape(CLOSE);
+          
+        } else {
+          push();//red
+          translate( len, 0);
+          rotate( radians( 90 ) );
+          scale( 0.5 );
+          drawChair(x, y, lev-1);
+          pop();
+      
+          push();//green
+          translate( 0, 0);
+          rotate( radians( 0 ) );
+          scale( 0.5 );
+          // fill(0, 255, 0);
+          drawChair(x, y, lev-1);
+          pop();
+      
+          push();//blue
+          translate( 0, len);
+          rotate( radians( -90 ) );
+          scale( 0.5 );
+          //fill(0, 0, 255);
+          drawChair(x, y, lev-1);
+          pop();
+      
+          push();//white
+          translate( len/4, len/4);
+          rotate( radians( 0) );
+          scale( 0.5 );
+          ///fill(255);
+          drawChair(x, y, lev-1);
+          pop();
+        }
+      }
+   </code>
+
+      </pre>
+      </div>
+      <div class="product">
+        <div id="recur1">
+          <script type="module" src="../js/page4/main.js"></script>
+        </div>
+      </div>
+      <div class="reflection">
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </div>
+
+    </section>
+    <section class="wrapper">
+      <div class="code">
+        <pre>
+    <code class="language-javascript">
+      function setup() {
+        createCanvas(400, 400);
+        fill(0);
+        noStroke();
+      }
+      
+      function makeDrawing(levs) {
+        ellipse(0, 0, 150, 150);
+        if (levs > 0) {
+          push();
+          translate(130, -20);
+          rotate(map(mouseY, 0, height, 0, radians(90)));
+          scale(map(mouseX, 0, width, 0, 1));
+          makeDrawing(levs - 1);
+          pop();
+      
+          push();
+          rotate(radians(-80));
+          translate(100, -90);
+          rotate(map(mouseY, 0, height, 0, radians(90)));
+          scale(map(mouseX, 0, width, 0, 1));
+          makeDrawing(levs - 1);
+          pop();
+        }
+      }
+      
+      function draw() {
+        background(255);
+        translate(150, 250);
+        makeDrawing(10);
+      }
+      
+   </code>
+
+      </pre>
+      </div>
+      <div class="product">
+        <div id="recur2">
+          <script type="module" src="../js/page4/main.js"></script>
+        </div>
+      </div>
+      <div class="reflection">
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </div>
+
+    </section>
+
+    <section class="wrapper">
+      <div class="code">
+        <pre>
+    <code class="language-javascript">
+      var buttonStart;
+
+      function setup() {
+        createCanvas(400, 400);
+      
+        noLoop();
+        buttonStart = createButton("reset");
+        buttonStart.position(0, 400);
+        buttonStart.mousePressed(resetIt);
+      }
+      
+      function draw() {
+        background(135, 206, 235);
+        strokeWeight(10);
+        translate(width / 2, height - 20);
+        branch(2);
+      }
+      
+      function branch(depth) {
+        if (depth < 10) {
+          strokeWeight(2);
+          line(0, 0, 0, -height / 10); // draw a line going up
+          translate(0, -height / 10); // move the space upwards
+          //rotate(random(-0.05, 0.05)); // random wiggle
+      
+          if (random(1.0) < 0.6) {
+            // branching
+            rotate(0.3); // rotate to the right
+            scale(0.8); // scale down
+      
+            push(); // now save the transform state
+            branch(depth + 1); // start a new branch!
+            pop(); // go back to saved state
+      
+            rotate(-0.6); // rotate back to the left
+      
+            push(); // save state
+            branch(depth + 1); // start a second new branch
+            pop(); // back to saved state
+          } else {
+            // no branch - continue at the same depth
+            branch(depth);
+          }
+        }
+      }
+      
+      function resetIt() {
+        redraw();
+      }
+      
+   </code>
+
+      </pre>
+      </div>
+      <div class="product">
+        <div id="recur3">
+          <script type="module" src="../js/page4/main.js"></script>
+        </div>
+      </div>
+      <div class="reflection">
+
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </div>
+
+    </section>
+  </div>
+  <footer class="footer__container">
+    <div class="footer__list">
+      <ul class="footer__elements">
+        <li>Test-run the code here: <a href="https://editor.p5js.org/">p5Editor</a></li>
+        <li>2023</li>
+        <li> &copy Reinartz</li>
+      </ul>
+
+    </div>
+  </footer>
+</body>
+
+</html>
